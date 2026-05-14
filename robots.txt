@@ -1,0 +1,40 @@
+# Altivision IT Solutions — robots.txt
+# https://altivision.co.in/
+
+User-agent: *
+Allow: /
+
+# Block crawling of nothing — this is a public marketing site.
+# Disallow:
+
+# Common crawler-specific tweaks
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+# Block AI training crawlers (optional — comment out if you want to be indexed by them)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap reference
+Sitemap: https://altivision.co.in/sitemap.xml
