@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if you later add Tailwind CLI build)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Local env
+.env
+.env.local
+
+# Build output (none for current setup)
