@@ -5,7 +5,7 @@ A modern, premium, conversion-focused single-page website for **Altivision**, an
 ## Stack
 
 - **HTML5** — semantic, SEO-optimized markup
-- **TailwindCSS** — via CDN with inline `tailwind.config` for custom theme tokens
+- **TailwindCSS** — pre-built via local CLI (`npm run build:css`) into `assets/tailwind.css`
 - **Vanilla JavaScript** — sticky nav, mobile menu, scroll reveal, FAQ accordion, contact form, course rendering
 - **Google Fonts** — Plus Jakarta Sans (headings) + Inter (body)
 
@@ -13,16 +13,34 @@ A modern, premium, conversion-focused single-page website for **Altivision**, an
 
 ```
 Altivision/
-├── index.html              # Single-page site, all 12 sections
+├── index.html              # Single-page site, all sections
 ├── assets/
+│   ├── logo.webp           # Site logo
+│   ├── tailwind.css        # Built, purged Tailwind (output — do not edit)
 │   ├── styles.css          # Custom styles beyond Tailwind (animations, components)
 │   └── script.js           # Interactivity + courses data
+├── src/
+│   └── input.css           # Tailwind entry (@tailwind base/components/utilities)
+├── tailwind.config.js      # Tailwind theme + content scan paths
+├── package.json            # build:css / watch:css scripts
 └── README.md
 ```
 
+## Build the stylesheet
+
+Tailwind compiles locally into `assets/tailwind.css`. Run once after cloning, and again whenever you add new utility classes to `index.html` / `assets/script.js`:
+
+```bash
+npm install
+npm run build:css        # one-shot, minified
+npm run watch:css        # rebuild on save during development
+```
+
+Commit `assets/tailwind.css` so deploys don't need a build step.
+
 ## Run locally
 
-No build step is required. Open `index.html` directly, or serve over HTTP for best results (some browsers throttle file:// loading):
+After building the stylesheet, open `index.html` directly, or serve over HTTP for best results (some browsers throttle file:// loading):
 
 ```bash
 # Option 1 — Python
@@ -94,7 +112,7 @@ Edit the `COURSES` array near the top of `assets/script.js`. Each item:
 ```
 
 ### Brand colors
-Tweak `tailwind.config.theme.extend.colors.brand` inside the `<script>` tag at the top of `index.html`, plus the `--grad` CSS variable in `assets/styles.css`.
+Tweak `theme.extend.colors.brand` in `tailwind.config.js`, run `npm run build:css`, and update the `--grad` CSS variable in `assets/styles.css` to match.
 
 ### Wiring the contact form
 The form currently logs to console and shows a success message. To actually receive leads, swap the `form.addEventListener('submit', …)` handler in `assets/script.js` for one of:
@@ -123,11 +141,10 @@ The form currently logs to console and shows a success message. To actually rece
 
 ## Performance notes
 
-- Tailwind is loaded via CDN for setup simplicity. For production, run the Tailwind CLI to generate a minified utility-only stylesheet:
-  ```bash
-  npx tailwindcss -i ./input.css -o ./assets/tailwind.min.css --minify
-  ```
-  …then swap the `<script src="https://cdn.tailwindcss.com">` for `<link rel="stylesheet" href="assets/tailwind.min.css">`.
+- Tailwind is **pre-built and purged** via the local CLI (`npm run build:css`) — no Play CDN runtime JIT in the browser.
+- Logo ships as WebP (`assets/logo.webp`) and is preloaded with `fetchpriority="high"`.
+- Google Fonts load non-blocking via the `media="print" onload="this.media='all'"` pattern (with a `<noscript>` fallback).
+- `assets/script.js` is `defer`-loaded so it never blocks HTML parsing.
 - All animations are GPU-friendly (`transform`, `opacity`).
 - Scroll reveal uses `IntersectionObserver` (no scroll listeners).
 

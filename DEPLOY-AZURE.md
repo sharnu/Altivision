@@ -119,7 +119,7 @@ git push
    | Api location | *(leave blank)* |
    | Output location | *(leave blank)* |
 
-   > **Why these values?** This site is plain HTML/CSS/JS with Tailwind loaded via CDN — there is no build step. Azure will simply upload the contents of the repo root.
+   > **Why these values?** Tailwind is pre-built locally into `assets/tailwind.css` and committed, so Azure has no build step — it simply uploads the repo root. If you later prefer Azure to compile Tailwind on each deploy, set **App build command** to `npm run build:css` and **Output location** to `.`.
 
 8. Click **Review + create**, then **Create**.
 9. Wait ~1–2 minutes for the resource to provision.
@@ -267,7 +267,7 @@ Add this to `staticwebapp.config.json` if you want everything to redirect to `ww
 | Site loads on Azure URL | Open `https://<your-app>.azurestaticapps.net` |
 | Site loads on custom domain | Open `https://www.altivision.co.in` |
 | Certificate is valid | Browser shows the lock icon, no warnings |
-| Assets load | DevTools → Network tab → all 200s, especially `assets/logo.png` and `assets/styles.css` |
+| Assets load | DevTools → Network tab → all 200s, especially `assets/logo.webp` and `assets/styles.css` |
 | Mobile responsive | Resize browser, or test on phone |
 | Form behavior | Submit the contact form — check console for the logged payload |
 | WhatsApp link | Click the floating button — should open `wa.me/918623857899` |
@@ -319,11 +319,11 @@ A marketing site like this will comfortably stay free unless you receive signifi
 | Symptom | Fix |
 |---|---|
 | GitHub Actions deploy fails with "App directory not found" | Check **App location = `/`** in the workflow YAML |
-| `assets/logo.png` returns 404 | Confirm the file path is lowercase and committed — Linux build agents are case-sensitive |
+| `assets/logo.webp` returns 404 | Confirm the file path is lowercase and committed — Linux build agents are case-sensitive |
 | Custom domain stuck on "Validating" | Wait 15–30 min after adding DNS records; DNS propagation can lag |
 | Site shows old content after deploy | Hard-refresh (Cmd-Shift-R), or check the workflow run finished green |
 | Form does nothing on submit | Expected — handler currently only logs to console. Wire to Formspree/Web3Forms/Azure Function |
-| Tailwind utilities not applying | Tailwind CDN must reach the browser — check no CSP header blocks `cdn.tailwindcss.com` |
+| Tailwind utilities not applying | Rebuild the stylesheet: `npm install && npm run build:css`, then commit the updated `assets/tailwind.css`. Tailwind only emits classes it sees in `index.html` / `assets/script.js`. |
 
 ---
 

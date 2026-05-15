@@ -5,11 +5,11 @@
   <!-- Homepage -->
   <url>
     <loc>https://altivision.co.in/</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://altivision.co.in/assets/logo.png</image:loc>
+      <image:loc>https://altivision.co.in/assets/logo.webp</image:loc>
       <image:title>Altivision IT Solutions</image:title>
       <image:caption>SAP training institute in Pune</image:caption>
     </image:image>

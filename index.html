@@ -34,24 +34,24 @@
 <meta property="og:title" content="Altivision — Launch Your SAP Career With Industry Experts" />
 <meta property="og:description" content="Industry-focused SAP training in Pune with real-time projects, certification guidance and dedicated placement support." />
 <meta property="og:url" content="https://altivision.co.in/" />
-<meta property="og:image" content="https://altivision.co.in/assets/logo.png" />
-<meta property="og:image:secure_url" content="https://altivision.co.in/assets/logo.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1024" />
-<meta property="og:image:height" content="1024" />
+<meta property="og:image" content="https://altivision.co.in/assets/logo.webp" />
+<meta property="og:image:secure_url" content="https://altivision.co.in/assets/logo.webp" />
+<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="1018" />
 <meta property="og:image:alt" content="Altivision IT Solutions logo" />
 
 <!-- ============ Twitter / X ============ -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Altivision — Launch Your SAP Career" />
 <meta name="twitter:description" content="Premier SAP training institute in Pune. Real projects. Certification. Placement support." />
-<meta name="twitter:image" content="https://altivision.co.in/assets/logo.png" />
+<meta name="twitter:image" content="https://altivision.co.in/assets/logo.webp" />
 <meta name="twitter:image:alt" content="Altivision IT Solutions logo" />
 
 <!-- ============ Favicons ============ -->
-<link rel="icon" type="image/png" href="assets/logo.png" />
-<link rel="apple-touch-icon" href="assets/logo.png" />
-<link rel="mask-icon" href="assets/logo.png" color="#0B1437" />
+<link rel="icon" type="image/webp" href="assets/logo.webp" />
+<link rel="apple-touch-icon" href="assets/logo.webp" />
+<link rel="mask-icon" href="assets/logo.webp" color="#0B1437" />
 
 <!-- ============ Sitemap discovery ============ -->
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -59,77 +59,16 @@
 <!-- ============ Performance hints ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.tailwindcss.com" />
-<link rel="dns-prefetch" href="//cdn.tailwindcss.com" />
 <link rel="dns-prefetch" href="//www.google.com" />
-<link rel="preload" as="image" href="assets/logo.png" />
+<link rel="preload" as="image" href="assets/logo.webp" type="image/webp" fetchpriority="high" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<!-- Fonts: non-blocking with print-swap trick + noscript fallback -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif'],
-          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-        },
-        colors: {
-          ink: {
-            50:  '#F5F7FB',
-            100: '#E6EBF5',
-            200: '#C5CEE3',
-            400: '#7A86A8',
-            600: '#39456B',
-            800: '#131C3A',
-            900: '#0B1437',
-            950: '#070C26',
-          },
-          brand: {
-            primary: '#3B5BFF',
-            indigo:  '#6366F1',
-            purple:  '#8B5CF6',
-            cyan:    '#06B6D4',
-            mint:    '#22D3EE',
-          },
-        },
-        boxShadow: {
-          'glow':   '0 20px 60px -20px rgba(99,102,241,0.45)',
-          'card':   '0 10px 30px -12px rgba(11,20,55,0.15)',
-          'cardLg': '0 24px 60px -20px rgba(11,20,55,0.25)',
-        },
-        animation: {
-          'blob':       'blob 14s infinite',
-          'float':      'float 6s ease-in-out infinite',
-          'fade-up':    'fadeUp 0.7s ease-out forwards',
-          'gradient-x': 'gradientX 8s ease infinite',
-        },
-        keyframes: {
-          blob: {
-            '0%,100%': { transform: 'translate(0,0) scale(1)' },
-            '33%':     { transform: 'translate(30px,-50px) scale(1.1)' },
-            '66%':     { transform: 'translate(-20px,20px) scale(0.9)' },
-          },
-          float: {
-            '0%,100%': { transform: 'translateY(0)' },
-            '50%':     { transform: 'translateY(-12px)' },
-          },
-          fadeUp: {
-            '0%':   { opacity: '0', transform: 'translateY(30px)' },
-            '100%': { opacity: '1', transform: 'translateY(0)' },
-          },
-          gradientX: {
-            '0%,100%': { 'background-position': '0% 50%' },
-            '50%':     { 'background-position': '100% 50%' },
-          },
-        },
-      },
-    },
-  };
-</script>
-
+<!-- Tailwind: pre-built, purged, minified (see tailwind.config.js — rebuild with `npm run build:css`) -->
+<link rel="stylesheet" href="assets/tailwind.css" />
 <link rel="stylesheet" href="assets/styles.css" />
 
 <!-- ============ Structured Data (JSON-LD) ============ -->
@@ -143,8 +82,8 @@
       "name": "Altivision IT Solutions",
       "alternateName": "Altivision",
       "url": "https://altivision.co.in/",
-      "logo": "https://altivision.co.in/assets/logo.png",
-      "image": "https://altivision.co.in/assets/logo.png",
+      "logo": "https://altivision.co.in/assets/logo.webp",
+      "image": "https://altivision.co.in/assets/logo.webp",
       "description": "Pune-based SAP training institute offering industry-focused certification courses with placement support across SAP SuccessFactors, MM, FICO, SD, EWM, PP, ABAP and CPI on S/4 HANA.",
       "slogan": "Launch Your SAP Career With Industry Experts",
       "telephone": ["+91-86238-57899", "+91-82371-91400"],
@@ -374,7 +313,7 @@
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
     <nav class="glass-nav mt-4 flex items-center justify-between rounded-2xl px-5 lg:px-7 py-3">
       <a href="#home" class="flex items-center gap-2.5 group">
-        <img src="assets/logo.png" alt="Altivision logo" class="w-10 h-10 rounded-xl object-cover shadow-glow ring-1 ring-ink-100" />
+        <img src="assets/logo.webp" alt="Altivision IT Solutions logo" width="40" height="40" decoding="async" fetchpriority="high" class="w-10 h-10 rounded-xl object-cover shadow-glow ring-1 ring-ink-100" />
         <span class="font-display font-bold text-lg text-ink-900">Alti<span class="text-brand-indigo">vision</span></span>
       </a>
 
@@ -1085,7 +1024,7 @@
   <div class="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid md:grid-cols-2 lg:grid-cols-12 gap-10">
     <div class="lg:col-span-4">
       <a href="#home" class="flex items-center gap-2.5">
-        <img src="assets/logo.png" alt="Altivision logo" class="w-10 h-10 rounded-xl object-cover ring-1 ring-white/15" />
+        <img src="assets/logo.webp" alt="Altivision IT Solutions logo" width="40" height="40" loading="lazy" decoding="async" class="w-10 h-10 rounded-xl object-cover ring-1 ring-white/15" />
         <span class="font-display font-bold text-lg text-white">Alti<span class="text-brand-mint">vision</span></span>
       </a>
       <p class="mt-4 text-sm leading-relaxed max-w-sm">Pune's premier SAP training institute — building SAP careers through hands-on training, real projects and dedicated placement support.</p>
@@ -1160,6 +1099,6 @@
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.554-5.338 11.89-11.893 11.89a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
 </a>
 
-<script src="assets/script.js"></script>
+<script src="assets/script.js" defer></script>
 </body>
 </html>
