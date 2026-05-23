@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     './index.html',
+    './sap-support.html',
     './assets/script.js',
+    './assets/support.js',
   ],
   theme: {
     extend: {
