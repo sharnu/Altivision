@@ -134,8 +134,20 @@ if (coursesGrid) {
 
 // ---------- Training partners data + render ----------
 const PARTNERS = [
-  { name: 'Educenter',            tag: 'Training Partner', url: 'http://www.educenter.org.in/', logo: 'assets/logos/educenter.png' },
-  { name: 'CompCare IT Solution', tag: 'Training Partner', url: 'https://www.compcareitsolution.com/', logo: 'assets/logos/compcare.png' },
+  {
+    name: 'Educenter',
+    tag: 'Training Partner',
+    url: 'http://www.educenter.org.in/',
+    logo: 'assets/logos/educenter.png',
+    desc: 'A Solapur-based skill-development centre under The Next Up Solutions (ISO 9001:2015), with programs spanning SAP, MBA, medical coding and distance education. Our partnership extends hands-on, industry-aligned SAP training to learners across Maharashtra.',
+  },
+  {
+    name: 'CompCare IT Solution',
+    tag: 'Training Partner',
+    url: 'https://www.compcareitsolution.com/',
+    logo: 'assets/logos/compcare.png',
+    desc: 'A Sangli computer-training institute (since 2014) covering programming, full-stack web development, data analytics and SAP. Together we widen access to job-ready SAP skills backed by real projects and placement support.',
+  },
 ];
 
 const partnersGrid = document.getElementById('partnersGrid');
@@ -143,9 +155,12 @@ if (partnersGrid) {
   partnersGrid.innerHTML = PARTNERS.map((p, i) => {
     const arrow = p.url && !p.logo ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
     const inner = p.logo
-      ? `<img class="c-logo" src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async"><span class="c-name">${p.name}</span>`
+      ? `<img class="c-logo" src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async">`
+        + `<span class="c-name">${p.name}</span>`
+        + (p.desc ? `<p class="c-desc">${p.desc}</p>` : '')
+        + (p.url && p.desc ? `<span class="c-cta">Visit website ↗</span>` : '')
       : `<span class="c-name">${p.name}${arrow}</span>${p.tag ? `<span class="c-tag">${p.tag}</span>` : ''}`;
-    const cls = p.logo ? 'client-card client-card--logo' : 'client-card';
+    const cls = p.logo ? `client-card client-card--logo${p.desc ? ' client-card--rich' : ''}` : 'client-card';
     return p.url
       ? `<a class="${cls}" href="${p.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
       : `<div class="${cls}" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
