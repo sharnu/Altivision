@@ -195,7 +195,7 @@ const CLIENTS = [
   { name: 'Suved Engineering',                 url: 'https://suvedengineering.com/',        logo: 'assets/logos/suved-engineering.png' },
   { name: 'Mechem Technologies',                                                           logo: 'assets/logos/mechem.png' },
   { name: 'Premium Chick Feeds Pvt Ltd',       url: 'https://premiumchickfeeds.in/',       logo: 'assets/logos/premium-chick-feeds.png' },
-  { name: 'Maxlord Global Industries Pvt Ltd', url: 'https://www.maxlordindustries.com/' },
+  { name: 'Maxlord Global Industries Pvt Ltd', url: 'https://www.maxlordindustries.com/', logo: 'assets/logos/maxlord.png' },
 ];
 
 const clientsGrid = document.getElementById('clientsGrid');
