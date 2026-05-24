@@ -134,7 +134,7 @@ if (coursesGrid) {
 
 // ---------- Training partners data + render ----------
 const PARTNERS = [
-  { name: 'Educenter',            tag: 'Training Partner', url: 'http://www.educenter.org.in/' },
+  { name: 'Educenter',            tag: 'Training Partner', url: 'http://www.educenter.org.in/', logo: 'assets/logos/educenter.png' },
   { name: 'CompCare IT Solution', tag: 'Training Partner', url: 'https://www.compcareitsolution.com/', logo: 'assets/logos/compcare.png' },
 ];
 
