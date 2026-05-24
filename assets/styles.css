@@ -831,9 +831,9 @@ a.client-card:hover .c-arrow { transform: translate(2px, -2px); }
   letter-spacing: .06em;
   color: #7A86A8;
 }
-.client-card--logo { align-items: center; justify-content: center; text-align: center; }
+.client-card--logo { align-items: center; justify-content: center; text-align: center; gap: .7rem; }
 .client-card .c-logo {
-  max-height: 52px;
+  max-height: 50px;
   max-width: 78%;
   width: auto;
   object-fit: contain;
@@ -842,6 +842,13 @@ a.client-card:hover .c-arrow { transform: translate(2px, -2px); }
   transition: filter .3s ease, opacity .3s ease, transform .35s ease;
 }
 .client-card:hover .c-logo { filter: grayscale(0); opacity: 1; }
+.client-card--logo .c-name {
+  display: block;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #39456B;
+  line-height: 1.3;
+}
 
 /* ----- Annual support plans (pricing tiers) ----- */
 .plan-card {

@@ -203,7 +203,7 @@ if (clientsGrid) {
   clientsGrid.innerHTML = CLIENTS.map((c, i) => {
     const arrow = c.url && !c.logo ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
     const inner = c.logo
-      ? `<img class="c-logo" src="${c.logo}" alt="${c.name} logo" loading="lazy" decoding="async">`
+      ? `<img class="c-logo" src="${c.logo}" alt="${c.name} logo" loading="lazy" decoding="async"><span class="c-name">${c.name}</span>`
       : `<span class="c-name">${c.name}${arrow}</span>`;
     const cls = c.logo ? 'client-card client-card--logo' : 'client-card';
     return c.url

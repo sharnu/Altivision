@@ -143,7 +143,7 @@ if (partnersGrid) {
   partnersGrid.innerHTML = PARTNERS.map((p, i) => {
     const arrow = p.url && !p.logo ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
     const inner = p.logo
-      ? `<img class="c-logo" src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async">`
+      ? `<img class="c-logo" src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async"><span class="c-name">${p.name}</span>`
       : `<span class="c-name">${p.name}${arrow}</span>${p.tag ? `<span class="c-tag">${p.tag}</span>` : ''}`;
     const cls = p.logo ? 'client-card client-card--logo' : 'client-card';
     return p.url
