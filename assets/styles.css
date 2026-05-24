@@ -837,11 +837,8 @@ a.client-card:hover .c-arrow { transform: translate(2px, -2px); }
   max-width: 78%;
   width: auto;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: .72;
-  transition: filter .3s ease, opacity .3s ease, transform .35s ease;
+  transition: transform .35s ease;
 }
-.client-card:hover .c-logo { filter: grayscale(0); opacity: 1; }
 .client-card--logo .c-name {
   display: block;
   font-size: .8rem;
