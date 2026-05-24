@@ -132,6 +132,24 @@ if (coursesGrid) {
   coursesGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }
 
+// ---------- Training partners data + render ----------
+const PARTNERS = [
+  { name: 'Educenter',            tag: 'Training Partner', url: 'http://www.educenter.org.in/' },
+  { name: 'CompCare IT Solution', tag: 'Training Partner', url: 'https://www.compcareitsolution.com/' },
+];
+
+const partnersGrid = document.getElementById('partnersGrid');
+if (partnersGrid) {
+  partnersGrid.innerHTML = PARTNERS.map((p, i) => {
+    const arrow = p.url ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
+    const inner = `<span class="c-name">${p.name}${arrow}</span>${p.tag ? `<span class="c-tag">${p.tag}</span>` : ''}`;
+    return p.url
+      ? `<a class="client-card" href="${p.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
+      : `<div class="client-card" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
+  }).join('');
+  partnersGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+}
+
 // ---------- FAQ accordion: close others on open ----------
 const faqs = document.querySelectorAll('#faqList .faq');
 faqs.forEach(faq => {

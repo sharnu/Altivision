@@ -185,6 +185,31 @@ if (portfolioGrid) {
   portfolioGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }
 
+// ---------- Clients (named) data + render ----------
+const CLIENTS = [
+  { name: 'Gera Realty' },
+  { name: 'Tech Point IT Solutions' },
+  { name: 'Intellect Bizware', url: 'https://intellectbizware.com' },
+  { name: 'SCOPE T&M Pvt Ltd' },
+  { name: 'Mistashi Global' },
+  { name: 'Suved Engineering' },
+  { name: 'Mechem Technologies' },
+  { name: 'Premium Chick Feeds Pvt Ltd' },
+  { name: 'Maxlord Global Industries Pvt Ltd' },
+];
+
+const clientsGrid = document.getElementById('clientsGrid');
+if (clientsGrid) {
+  clientsGrid.innerHTML = CLIENTS.map((c, i) => {
+    const arrow = c.url ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
+    const inner = `<span class="c-name">${c.name}${arrow}</span>`;
+    return c.url
+      ? `<a class="client-card" href="${c.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
+      : `<div class="client-card" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
+  }).join('');
+  clientsGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+}
+
 // ---------- FAQ accordion: close others on open ----------
 const faqs = document.querySelectorAll('#faqList .faq');
 faqs.forEach(faq => {

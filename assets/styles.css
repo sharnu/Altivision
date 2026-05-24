@@ -788,6 +788,50 @@ body { font-family: 'Inter', system-ui, sans-serif; }
   color: #7A86A8;
 }
 
+/* ----- Client / partner name cards ----- */
+.client-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .3rem;
+  min-height: 104px;
+  background: #fff;
+  border: 1px solid #E6EBF5;
+  border-radius: 22px;
+  padding: 1.4rem 1.5rem;
+  text-decoration: none;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+a.client-card:hover {
+  transform: translateY(-5px);
+  border-color: transparent;
+  box-shadow: 0 26px 46px -22px rgba(11,20,55,0.22);
+}
+.client-card .c-name {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #131C3A;
+  line-height: 1.3;
+}
+.client-card .c-arrow {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: #6366F1;
+  transition: transform .25s ease;
+}
+a.client-card:hover .c-arrow { transform: translate(2px, -2px); }
+.client-card .c-tag {
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #7A86A8;
+}
+
 /* ----- Annual support plans (pricing tiers) ----- */
 .plan-card {
   background: #fff;
