@@ -187,25 +187,28 @@ if (portfolioGrid) {
 
 // ---------- Clients (named) data + render ----------
 const CLIENTS = [
-  { name: 'Gera Realty' },
-  { name: 'Tech Point IT Solutions' },
-  { name: 'Intellect Bizware', url: 'https://intellectbizware.com' },
-  { name: 'SCOPE T&M Pvt Ltd' },
-  { name: 'Mistashi Global' },
-  { name: 'Suved Engineering' },
+  { name: 'Gera Realty',                       url: 'https://www.gera.in/',                logo: 'assets/logos/gera.webp' },
+  { name: 'Tech Point IT Solutions',           url: 'https://techpointsolution.com/',      logo: 'assets/logos/techpoint.png' },
+  { name: 'Intellect Bizware',                 url: 'https://intellectbizware.com',        logo: 'assets/logos/intellect-bizware.png' },
+  { name: 'SCOPE T&M Pvt Ltd',                 url: 'https://www.scopetnm.com/' },
+  { name: 'Mitashi Global',                    url: 'https://www.mitashiglobal.com/' },
+  { name: 'Suved Engineering',                 url: 'https://suvedengineering.com/',        logo: 'assets/logos/suved-engineering.png' },
   { name: 'Mechem Technologies' },
-  { name: 'Premium Chick Feeds Pvt Ltd' },
-  { name: 'Maxlord Global Industries Pvt Ltd' },
+  { name: 'Premium Chick Feeds Pvt Ltd',       url: 'https://premiumchickfeeds.in/',       logo: 'assets/logos/premium-chick-feeds.png' },
+  { name: 'Maxlord Global Industries Pvt Ltd', url: 'https://www.maxlordindustries.com/' },
 ];
 
 const clientsGrid = document.getElementById('clientsGrid');
 if (clientsGrid) {
   clientsGrid.innerHTML = CLIENTS.map((c, i) => {
-    const arrow = c.url ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
-    const inner = `<span class="c-name">${c.name}${arrow}</span>`;
+    const arrow = c.url && !c.logo ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
+    const inner = c.logo
+      ? `<img class="c-logo" src="${c.logo}" alt="${c.name} logo" loading="lazy" decoding="async">`
+      : `<span class="c-name">${c.name}${arrow}</span>`;
+    const cls = c.logo ? 'client-card client-card--logo' : 'client-card';
     return c.url
-      ? `<a class="client-card" href="${c.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
-      : `<div class="client-card" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
+      ? `<a class="${cls}" href="${c.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
+      : `<div class="${cls}" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
   }).join('');
   clientsGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }

@@ -135,17 +135,20 @@ if (coursesGrid) {
 // ---------- Training partners data + render ----------
 const PARTNERS = [
   { name: 'Educenter',            tag: 'Training Partner', url: 'http://www.educenter.org.in/' },
-  { name: 'CompCare IT Solution', tag: 'Training Partner', url: 'https://www.compcareitsolution.com/' },
+  { name: 'CompCare IT Solution', tag: 'Training Partner', url: 'https://www.compcareitsolution.com/', logo: 'assets/logos/compcare.png' },
 ];
 
 const partnersGrid = document.getElementById('partnersGrid');
 if (partnersGrid) {
   partnersGrid.innerHTML = PARTNERS.map((p, i) => {
-    const arrow = p.url ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
-    const inner = `<span class="c-name">${p.name}${arrow}</span>${p.tag ? `<span class="c-tag">${p.tag}</span>` : ''}`;
+    const arrow = p.url && !p.logo ? '<span class="c-arrow" aria-hidden="true">↗</span>' : '';
+    const inner = p.logo
+      ? `<img class="c-logo" src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async">`
+      : `<span class="c-name">${p.name}${arrow}</span>${p.tag ? `<span class="c-tag">${p.tag}</span>` : ''}`;
+    const cls = p.logo ? 'client-card client-card--logo' : 'client-card';
     return p.url
-      ? `<a class="client-card" href="${p.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
-      : `<div class="client-card" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
+      ? `<a class="${cls}" href="${p.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
+      : `<div class="${cls}" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
   }).join('');
   partnersGrid.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }
