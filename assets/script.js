@@ -182,7 +182,7 @@ faqs.forEach(faq => {
 const form   = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
 
@@ -191,12 +191,29 @@ if (form) {
       return;
     }
 
-    // No backend wired yet — surface success state and log payload.
-    // Replace with your endpoint, EmailJS, Formspree or WhatsApp deeplink.
-    console.log('[Altivision] Contact form submission:', data);
+    // Submit to Web3Forms (delivers to Altivisionsolutions@gmail.com).
+    const btn = form.querySelector('[type="submit"]');
+    const btnHtml = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-    showStatus('Thanks! Our counselor will reach out within 24 hours.', 'ok');
-    form.reset();
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.success) {
+        showStatus('Thanks! Our counselor will reach out within 24 hours.', 'ok');
+        form.reset();
+      } else {
+        showStatus(result.message || 'Something went wrong. Please try again or email Altivisionsolutions@gmail.com.', 'error');
+      }
+    } catch (err) {
+      showStatus('Network error — please try again or email Altivisionsolutions@gmail.com.', 'error');
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+    }
   });
 }
 

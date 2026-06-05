@@ -145,13 +145,16 @@ Edit the `SERVICES` and `PORTFOLIO` arrays near the top of `assets/support.js`. 
 ### Brand colors
 Tweak `theme.extend.colors.brand` in `tailwind.config.js`, run `npm run build:css`, and update the `--grad` CSS variable in `assets/styles.css` to match.
 
-### Wiring the contact form
-Both forms (the training enquiry in `assets/script.js` and the request-a-quote in `assets/support.js`) currently log to console and show a success message. To actually receive leads, swap the `form.addEventListener('submit', …)` handler for one of:
+### Contact / quote forms — wired to Web3Forms
+Both forms (the training enquiry in `assets/script.js` and the request-a-quote in `assets/support.js`) submit to **[Web3Forms](https://web3forms.com)**, which forwards each submission by email to **Altivisionsolutions@gmail.com**. No backend or server is involved.
 
-- **Formspree** — `fetch('https://formspree.io/f/<your-id>', { method: 'POST', body: new FormData(form) })`
-- **EmailJS** — call `emailjs.sendForm(...)`
-- **WhatsApp deeplink** — build `https://wa.me/<num>?text=...` and `window.open(...)`
-- **Custom endpoint** — `fetch('/api/lead', { method: 'POST', body: JSON.stringify(data) })`
+How it works:
+- Each `<form>` carries hidden inputs — `access_key` (the Web3Forms key tied to the destination email), `subject`, `from_name`, and a `botcheck` honeypot.
+- The submit handler client-side-validates required fields, then `POST`s the form data as JSON to `https://api.web3forms.com/submit` and shows the success/error message. The submit button is disabled (and shows "Sending…") during the request.
+
+To change the destination email or key, regenerate an access key at web3forms.com for the new address and update the `access_key` hidden input in **both** `index.html` and `sap-support.html`. The access key is public by design (it only routes to the verified address; it can't be used to read submissions). Free tier covers 250 submissions/month.
+
+Alternative providers, if you ever switch: Formspree, EmailJS, a WhatsApp deeplink, or a custom `/api` endpoint (Azure SWA managed Functions).
 
 ## SEO checklist
 

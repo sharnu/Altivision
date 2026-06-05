@@ -206,7 +206,9 @@ if (clientsGrid) {
     const inner = c.logo
       ? `<img class="c-logo" src="${c.logo}" alt="${c.name} logo" loading="lazy" decoding="async"><span class="c-name">${c.name}</span>`
       : `<span class="c-name">${c.name}${arrow}</span>`;
-    const cls = c.logo ? 'client-card client-card--logo' : 'client-card';
+    // Centre a lone trailing card on the 3-col desktop grid (e.g. 10 clients -> last row has just one)
+    const loneLast = i === CLIENTS.length - 1 && CLIENTS.length % 3 === 1;
+    const cls = (c.logo ? 'client-card client-card--logo' : 'client-card') + (loneLast ? ' lg:col-start-2' : '');
     return c.url
       ? `<a class="${cls}" href="${c.url}" target="_blank" rel="noopener" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</a>`
       : `<div class="${cls}" data-reveal style="transition-delay:${(i % 3) * 60}ms">${inner}</div>`;
@@ -228,7 +230,7 @@ faqs.forEach(faq => {
 const form   = document.getElementById('quoteForm');
 const status = document.getElementById('formStatus');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
 
@@ -237,12 +239,29 @@ if (form) {
       return;
     }
 
-    // No backend wired yet — surface success state and log payload.
-    // Replace with your endpoint, EmailJS, Formspree or a CRM webhook.
-    console.log('[Altivision] Quote request:', data);
+    // Submit to Web3Forms (delivers to Altivisionsolutions@gmail.com).
+    const btn = form.querySelector('[type="submit"]');
+    const btnHtml = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-    showStatus('Thanks! Our SAP support team will reach out within one business day.', 'ok');
-    form.reset();
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.success) {
+        showStatus('Thanks! Our SAP support team will reach out within one business day.', 'ok');
+        form.reset();
+      } else {
+        showStatus(result.message || 'Something went wrong. Please try again or email Altivisionsolutions@gmail.com.', 'error');
+      }
+    } catch (err) {
+      showStatus('Network error — please try again or email Altivisionsolutions@gmail.com.', 'error');
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+    }
   });
 }
 
