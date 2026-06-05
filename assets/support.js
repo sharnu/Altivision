@@ -196,7 +196,7 @@ const CLIENTS = [
   { name: 'Mechem Technologies',                                                           logo: 'assets/logos/mechem.png' },
   { name: 'Premium Chick Feeds Pvt Ltd',       url: 'https://premiumchickfeeds.in/',       logo: 'assets/logos/premium-chick-feeds.png' },
   { name: 'Maxlord Global Industries Pvt Ltd', url: 'https://www.maxlordindustries.com/', logo: 'assets/logos/maxlord.png' },
-  { name: 'Nutrivana Private Limited',                                                     logo: 'assets/logos/nutrivana.webp' },
+  { name: 'Nutrivana Private Limited',         url: 'https://www.nutrivana.co.in/',        logo: 'assets/logos/nutrivana.webp' },
 ];
 
 const clientsGrid = document.getElementById('clientsGrid');
