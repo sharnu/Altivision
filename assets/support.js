@@ -54,18 +54,18 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 // ---------- Services data + render ----------
 const SERVICES = [
   {
-    icon: 'bg-indigo-100 text-brand-indigo',
-    svg: '<path d="M9 12l2 2 4-4"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 5c0 1.66 4 3 9 3s9-1.34 9-3-4-3-9-3-9 1.34-9 3z"/>',
-    title: 'SAP Application Management (AMS)',
-    desc: 'Day-to-day functional & technical support across your modules — incidents, service requests, bug fixes and month-end support, all under agreed SLAs.',
-    chips: ['Incidents', 'Service Requests', 'Month-end', 'SLA-bound'],
+    icon: 'bg-emerald-100 text-emerald-600',
+    svg: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    title: 'SAP Implementation & Rollouts',
+    desc: 'Greenfield and brownfield implementations plus country, plant and company-code rollouts — fit-gap, configuration, data migration and go-live support.',
+    chips: ['Greenfield', 'Rollouts', 'Fit-Gap', 'Go-Live'],
   },
   {
-    icon: 'bg-cyan-100 text-brand-cyan',
-    svg: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
-    title: 'SAP Basis & HANA Administration',
-    desc: 'System monitoring, performance tuning, transport management, kernel & support-pack patching, backups, DR and user & security administration.',
-    chips: ['Monitoring', 'Patching', 'Security', 'Backups'],
+    icon: 'bg-indigo-100 text-brand-indigo',
+    svg: '<path d="M9 12l2 2 4-4"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 5c0 1.66 4 3 9 3s9-1.34 9-3-4-3-9-3-9 1.34-9 3z"/>',
+    title: 'Application Management & Support (AMS)',
+    desc: 'Day-to-day functional & technical support across your modules — incidents, service requests, bug fixes and month-end support, all under agreed SLAs.',
+    chips: ['Incidents', 'Service Requests', 'Month-end', 'SLA-bound'],
   },
   {
     icon: 'bg-purple-100 text-brand-purple',
@@ -75,11 +75,11 @@ const SERVICES = [
     chips: ['ECC → S/4', 'Readiness', 'Testing'],
   },
   {
-    icon: 'bg-emerald-100 text-emerald-600',
-    svg: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
-    title: 'Implementation & Rollouts',
-    desc: 'Greenfield and brownfield implementations plus country, plant and company-code rollouts — fit-gap, configuration, data migration and go-live support.',
-    chips: ['Greenfield', 'Rollouts', 'Fit-Gap', 'Go-Live'],
+    icon: 'bg-cyan-100 text-brand-cyan',
+    svg: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    title: 'SAP Basis & HANA Administration',
+    desc: 'System monitoring, performance tuning, transport management, kernel & support-pack patching, backups, DR and user & security administration.',
+    chips: ['Monitoring', 'Patching', 'Security', 'Backups'],
   },
   {
     icon: 'bg-amber-100 text-amber-600',
@@ -196,6 +196,7 @@ const CLIENTS = [
   { name: 'Mechem Technologies',                                                           logo: 'assets/logos/mechem.png' },
   { name: 'Premium Chick Feeds Pvt Ltd',       url: 'https://premiumchickfeeds.in/',       logo: 'assets/logos/premium-chick-feeds.png' },
   { name: 'Maxlord Global Industries Pvt Ltd', url: 'https://www.maxlordindustries.com/', logo: 'assets/logos/maxlord.png' },
+  { name: 'Nutrivana Private Limited',                                                     logo: 'assets/logos/nutrivana.webp' },
 ];
 
 const clientsGrid = document.getElementById('clientsGrid');

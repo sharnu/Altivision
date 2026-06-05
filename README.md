@@ -118,7 +118,7 @@ Current details (from altivision.co.in):
 - **Email**: info@altivision.co.in · connect@altivision.co.in
 - **WhatsApp**: wa.me/918623857899
 - **Hours**: Mon–Sat · 9:00 AM – 7:00 PM
-- **Address**: Shop No 4, Goodwill Zest County, Lohegaon, Pune – 411027
+- **Address**: Office No 4, Goodwill Zest County, Lohegaon, Pune – 411027
 
 To change, search-and-replace these strings inside `index.html`:
 - `+91 86238 57899` / `+918623857899`

@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A pure static marketing site for **Altivision IT Solutions** (a Pune SAP firm). No framework, no bundler, no runtime build — just hand-authored HTML, one custom CSS file, vanilla JS, and a pre-built Tailwind stylesheet. There are two pages, one per business vertical:
 
 - `index.html` — SAP **training** for students/professionals (courses, batches, placement, training-institute partners).
-- `sap-support.html` — enterprise **SAP support / AMS** for companies (services, support plans, named client wall, anonymized portfolio, request-a-quote).
+- `sap-support.html` — enterprise **SAP implementation & support (AMS)** for companies (implementation & rollouts plus services, support plans, named client wall, anonymized portfolio, request-a-quote).
 
 The two pages share the same design system, `assets/styles.css`, and `assets/tailwind.css`, and cross-link via navbar/footer.
 

@@ -1,5 +1,5 @@
 # Altivision IT Solutions — robots.txt
-# https://altivision.co.in/
+# https://www.altivision.co.in/
 
 User-agent: *
 Allow: /
@@ -37,4 +37,4 @@ User-agent: Google-Extended
 Disallow: /
 
 # Sitemap reference
-Sitemap: https://altivision.co.in/sitemap.xml
+Sitemap: https://www.altivision.co.in/sitemap.xml
